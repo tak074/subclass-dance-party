@@ -23,3 +23,5 @@ makeDancer.prototype.setPosition = function() {
   };
   (this.$node).css(styleSettings);
 };
+
+
