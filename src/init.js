@@ -1,39 +1,42 @@
+
 $(document).ready(function() {
   window.dancers = [];
 
   $('.addDancerButton').on('click', function(event) {
-    /* This function sets up the click handlers for the create-dancer
-     * buttons on dancefloor.html. You should only need to make one small change to it.
-     * As long as the "data-dancer-maker-function-name" attribute of a
-     * class="addDancerButton" DOM node matches one of the names of the
-     * maker functions available in the global scope, clicking that node
-     * will call the function to make the dancer.
-     */
-
-    /* dancerMakerFunctionName is a string which must match
-     * one of the dancer maker functions available in global scope.
-     * A new object of the given type will be created and added
-     * to the stage.
-     */
-    // debugger;
-    // console.log($(this));
-    // console.log(this.dancerMakerFunctionName);
-    var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');//{dancerMakerFunctionName: "makeBlinkyDancer"} when empty.
-
-    // get the maker function for the kind of dancer we're supposed to make
+    var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
     var dancerMakerFunction = window[dancerMakerFunctionName];
-    console.log('danceMFunc: ', dancerMakerFunction);
-
-    // make a dancer with a random position
-
-    var dancer = new dancerMakerFunction(
-      $("body").height() * Math.random(),
-      $("body").width() * Math.random(),
-      Math.random() * 1000
+    var dot = new dancerMakerFunction(
+      $('body').height() * ((Math.random() * 0.4) + 0.6),
+      $('body').width() * Math.random(),
+      60 / 113 * 1000
     );
-    $('body').append(dancer.$node);
+    $('body').append(dot.$node);
   });
+
+  //add Rick to the floor
+  $('.addRickButton').on('click', function(event) {
+    var rickMakerFunctionName = $(this).data('dancer-maker-function-name');
+    var rickMakerFunction = window[rickMakerFunctionName];
+    var dancer = new rickMakerFunction();
+    $('body').append(dancer.$node);
+    $('.spotlight').css('opacity', '100');
+  });
+
+  //line-up all dancers
+  $('.line-up').on('click', function(event) {
+    $('.dancer').css('top', '70%');
+  });
+
+  //jumper
+  $('.addJumperButton').on('click', function(event) {
+    var jumperMakerFunctionName = $(this).data('dancer-maker-function-name');
+    var jumperMakerFunction = window[jumperMakerFunctionName];
+
+    var jump = new jumperMakerFunction(50, 25, 100);
+    $('body').append(jump.$node);
+  });
+
 });
-
-// WE SEE THE RED DOT!!!!!!!!!!!
-
+// $('body').height() * ((Math.random() * 0.4) + 0.6),
+//       $('body').width() * Math.random(),
+//       60 / 113 * 1000

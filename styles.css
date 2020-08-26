@@ -1,17 +1,34 @@
 body, html{
   height:100%;
+
 }
 body{
   margin: 0px;
   background-color:#444;
   font-size: 18px;
+  background-image: linear-gradient(black, rgb(78, 78, 78), black)
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
-.title, .addDancerButton{
+.title, .addDancerButton, .line-up, .addJumperButton{
   padding:5px 12px;
   float:right;
+}
+.audio {
+  opacity: 1%;
+}
+#spotlight1 {
+  position: absolute;
+  left: 0;
+  opacity: 0%;
+  height: 50%;
+}
+#spotlight2 {
+  position: absolute;
+  right: 0;
+  opacity: 0%;
+  height: 50%;
 }
 .topbar{
   height:32px;
@@ -20,8 +37,52 @@ body, a:link, a:visited, a:active{
 .title{
   background-color: #777;
 }
+
+@keyframes grower {
+  from {
+    padding: 0;
+  }
+  to {
+    padding: 20px;
+  }
+}
+
+.dancer:hover {
+  animation-name: grower;
+  animation-duration: 1s;
+  animation-iteration-count: 10;
+  animation-direction: alternate-reverse;
+}
+
 .dancer{
-  border:10px solid red;
-  border-radius:10px;
+  border: 10px solid green;
+  border-radius: 100%;
   position:absolute;
+}
+
+
+.star{
+  margin: auto;
+  display:block;
+  height: 50%;
+  width: 60%;
+}
+
+/* @keyframes jump {
+  from {
+    top: 60%
+  }
+  to {
+    top: 55%;
+  }
+} */
+
+.jumper {
+  /* animation-name: jump;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  position: absolute; */
+  position: relative;
+  border: 10px solid red;
 }

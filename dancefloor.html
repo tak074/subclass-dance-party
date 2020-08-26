@@ -6,11 +6,34 @@
     <script src="lib/jquery.js"></script>
     <script src="src/dancer.js"></script>
     <script src="src/blinkyDancer.js"></script>
+    <script src="src/rickDancer.js"></script>
+    <script src="src/jumpyDancer.js"></script>
+
   </head>
   <body>
+<!--
+    <video autoplay muted>
+      <source type="video/mp4" src="https://www.youtube.com/watch?v=dQw4w9WgXcQ"></source>
+    </video> -->
+
+    <div class="audio">
+      <audio controls>
+        <source src="src/rickRoll.mp3" type="audio/mp3">
+      </audio>
+    </div>
     <div class="topbar">
-      <span class="title">object dance party</span>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeBlinkyDancer">add a blinky dancer</a>    </div>
+      <span class="title">Object Dance Party</span>
+
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeBlinkyDancer">Blinky Dancer</a>
+
+      <a href="#" class="line-up">Line Up</a>
+      <a href="#" class="addRickButton" data-dancer-maker-function-name="makeRickDancer">The dancer who won't give up</a>
+      <a href="#" class="addJumperButton" data-dancer-maker-function-name="makeJumperDancer">Jumpy Dancer</a>
+    </div>
+    <img src="https://i.pinimg.com/originals/4b/d8/c0/4bd8c058636c053c64d28bb8514a1463.jpg" id="spotlight1" class = "spotlight"></img>
+    <img src="https://i.pinimg.com/originals/4b/d8/c0/4bd8c058636c053c64d28bb8514a1463.jpg" id="spotlight2" class= "spotlight"></img>
     <script src="src/init.js"></script>
+
+    <section class="dancefloor"></section>
   </body>
 </html>
